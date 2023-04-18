@@ -1,8 +1,14 @@
-import { useState } from 'react';
-import './App.css';
+// Routes
+import { Route, Routes } from 'react-router-dom';
+import { PrivateRoutes } from './components/PrivateRoutes';
+
+// Views
 
 function App() {
-  return '';
+  return;
+  <>
+    <Routes></Routes>
+  </>;
 }
 
 export default App;
