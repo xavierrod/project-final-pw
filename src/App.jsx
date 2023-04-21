@@ -14,7 +14,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Dashboard />} />
+        <Route path='/' element={<Upload />} />
         <Route path='/login' element={<Login />} />
 
         <Route element={<PrivateRoutes />}>
