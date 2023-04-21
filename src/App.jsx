@@ -5,16 +5,23 @@ import { PrivateRoutes } from './components/PrivateRoutes';
 //Views
 import Login from './views/Login';
 import Dashboard from './views/Dashboard';
+import Upload from './views/Upload';
+
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <Routes>
-      {/*  <Route path='/' element={<Index />} /> */}
-      <Route path='/login' element={<Login />} />
-      <Route path='/' element={<Dashboard />} />
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Dashboard />} />
+        <Route path='/login' element={<Login />} />
 
-      <Route element={<PrivateRoutes />}> </Route>
-    </Routes>
+        <Route element={<PrivateRoutes />}>
+          <Route path='/upload' element={<Upload />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

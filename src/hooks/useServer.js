@@ -8,7 +8,7 @@ function useServer() {
   const handleResponse = ({ data, loading, error }) => {
     //valores del backend: status, message, data, token
     if (data?.status && data?.message && data?.data?.token) {
-      setUser(...data);
+      setUser(data);
     }
 
     //Valores del backend: de login incorrecto
