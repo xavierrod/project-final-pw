@@ -2,15 +2,15 @@ import { useNavigate } from 'react-router-dom';
 import useServer from '../hooks/useServer.js';
 
 function Login() {
-  // const { post } = useServer();
-  // const navigate = useNavigate();
+  const { post } = useServer();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const credentials = Object.fromEntries(new FormData(e.target));
-    const { data } = await post({ url: '/auth/login', body: credentials });
-    if (data) return navigate('/FrontPage'); //when you log in, it will send you into the front page
+    const { data } = await post({ url: '/users/login', body: credentials });
+    if (data) return navigate('/'); //when you log in, it will send you into the front page
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -28,10 +28,10 @@ function Login() {
         </div>
 
         <div>
-          <label htmlFor='password'>Password</label>
+          <label htmlFor='pwd'>Password</label>
           <input
             id='pwd'
-            name='password'
+            name='pwd'
             type='password'
             autoComplete='password'
             required

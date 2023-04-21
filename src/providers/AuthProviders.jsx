@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
-import AuthContext from '../contexts/AuthContext.js';
-import isEmpty from '../helpers/isEmpty.js';
+import AuthContext from '../contexts/AuthContext';
+import isEmpty from '../helpers//isEmpty';
 
 const AuthProvider = ({ children }) => {
   const localUser = JSON.parse(localStorage.getItem('user')) || {};

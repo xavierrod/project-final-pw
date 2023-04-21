@@ -1,4 +1,4 @@
-function FrontPage() {
+function Dashboard() {
   return (
     <>
       <h1>Y O L O</h1>
@@ -6,4 +6,4 @@ function FrontPage() {
   );
 }
 
-export default FrontPage;
+export default Dashboard;

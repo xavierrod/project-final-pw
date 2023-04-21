@@ -6,11 +6,13 @@ function useServer() {
   const { token, setUser } = useAuth();
 
   const handleResponse = ({ data, loading, error }) => {
-    if (data?.user && data?.accessToken) {
-      setUser({ ...data });
+    //valores del backend: status, message, data, token
+    if (data?.status && data?.message && data?.data?.token) {
+      setUser(...data);
     }
 
-    if (error && error.status === 401) {
+    //Valores del backend: de login incorrecto
+    if (error && error.message === 'Email o password no correctos') {
       toast.error('user or password incorrect');
     } else {
       if (error) {
