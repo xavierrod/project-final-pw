@@ -1,4 +1,4 @@
-import { apiURL } from '../config';
+import { apiURL } from '../config.js';
 
 async function httpService({ url, method = 'GET', token = null, body = null }) {
   if (!url.startsWith('/')) throw new Error('URL Must Start With a Slash (/)');

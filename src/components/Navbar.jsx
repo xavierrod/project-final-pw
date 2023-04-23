@@ -12,7 +12,11 @@ function Navbar() {
   return (
     <nav className={styles.mainNav}>
       <NavLink to='/' className={styles.mainNav__a}>
-        Index
+        Inicio
+      </NavLink>
+
+      <NavLink to='/signup' className={styles.mainNav__a}>
+        Sign Up
       </NavLink>
 
       {isAuthenticated && (
@@ -20,14 +24,14 @@ function Navbar() {
           Upload
         </NavLink>
       )}
-      
+
       {isAuthenticated ? (
-        <NavLink to='/logout' className={styles.mainNav__a} onClick={logout}>
-          Logout
+        <NavLink to='/' className={styles.mainNav__a} onClick={logout}>
+          logout
         </NavLink>
       ) : (
         <NavLink to='/login' className={styles.mainNav__a}>
-          Login
+          login
         </NavLink>
       )}
     </nav>

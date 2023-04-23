@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useServer from '../hooks/useServer.js';
 
@@ -10,11 +11,13 @@ function Login() {
 
     const credentials = Object.fromEntries(new FormData(e.target));
     const { data } = await post({ url: '/users/login', body: credentials });
+    
     if (data) return navigate('/'); //when you log in, it will send you into the /PAGE
   };
   return (
     <form onSubmit={handleSubmit}>
       <div>
+        <div>YOU ARE LOGIN IN</div>
         <div>
           <label htmlFor='email'>Email</label>
           <input
