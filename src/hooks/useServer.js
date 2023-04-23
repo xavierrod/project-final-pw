@@ -1,19 +1,17 @@
 import { toast } from 'sonner';
-import httpService from '../services/httpServices';
+import httpService from '../services/httpService.js';
 import useAuth from './useAuth.js';
 
 function useServer() {
   const { token, setUser } = useAuth();
-
+  //backend values: status, message, data, token
   const handleResponse = ({ data, loading, error }) => {
-    //valores del backend: status, message, data, token
-    if (data?.status && data?.message && data?.data?.token) {
-      setUser(data);
+    if (data?.status === 'ok') {
+      setUser({ ...data });
     }
-
-    //Valores del backend: de login incorrecto
-    if (error && error.message === 'Email o password no correctos') {
-      toast.error('user or password incorrect');
+    //backend values: de login incorrecto
+    if (error && error.status === 'error') {
+      toast.error(data?.message);
     } else {
       if (error) {
         toast.error(error.message);

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
-import AuthContext from '../contexts/AuthContext';
-import isEmpty from '../helpers//isEmpty';
+import AuthContext from '../contexts/AuthContext.js';
+import isEmpty from '../helpers/isEmpty.js';
 
 const AuthProvider = ({ children }) => {
   const localUser = JSON.parse(localStorage.getItem('user')) || {};
@@ -9,7 +9,7 @@ const AuthProvider = ({ children }) => {
   const setUserHandler = (user = {}) => {
     if (isEmpty(user)) return;
 
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user)); /*json in localstorage*/
     setCurrentUser(user);
   };
 
@@ -20,9 +20,10 @@ const AuthProvider = ({ children }) => {
 
   const authValues = useMemo(() => {
     return {
+      //tokens: 
       user: currentUser?.user || null,
-      token: currentUser?.accessToken,
-      isAuthenticated: !!currentUser?.user?.id,
+      token: currentUser?.data?.token,
+      isAuthenticated: !!currentUser?.user?.data?.token,
       setUser: setUserHandler,
       logout: logoutHandler,
     };
