@@ -4,14 +4,14 @@ import useAuth from './useAuth.js';
 
 function useServer() {
   const { token, setUser } = useAuth();
-
+  //backend values: status, message, data, token
   const handleResponse = ({ data, loading, error }) => {
-    if (data?.user && data?.accessToken) {
+    if (data?.status === 'ok') {
       setUser({ ...data });
     }
-
-    if (error && error.status === 401) {
-      toast.error('El usuario o contraseña incorrecto');
+    //backend values: de login incorrecto
+    if (error && error.status === 'error') {
+      toast.error(data?.message);
     } else {
       if (error) {
         toast.error(error.message);

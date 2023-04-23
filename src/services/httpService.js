@@ -1,4 +1,4 @@
-import { apiURL } from '../config';
+import { apiURL } from '../config.js';
 
 async function httpService({ url, method = 'GET', token = null, body = null }) {
   if (!url.startsWith('/')) throw new Error('URL Must Start With a Slash (/)');
@@ -23,7 +23,6 @@ async function httpService({ url, method = 'GET', token = null, body = null }) {
   try {
     const response = await fetch(fullURL.href, config);
     const data = await response.json();
-    // if (!response.ok) throw new Error(data.error)
 
     return { data, loading: false, error: data.error || null };
   } catch (error) {
