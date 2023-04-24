@@ -2,6 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useServer from '../hooks/useServer.js';
 
+//CCS
+import styles from './login.module.css';
+
 function Login() {
   const { post } = useServer();
   const navigate = useNavigate();
@@ -12,14 +15,17 @@ function Login() {
     const credentials = Object.fromEntries(new FormData(e.target));
     const { data } = await post({ url: '/users/login', body: credentials });
     
-    if (data) return navigate('/'); //when you log in, it will send you into the /PAGE
+   
+
+
+    if (data) return navigate('/upload'); //when you log in, it will send you into the /PAGE
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.loginForm} onSubmit={handleSubmit}>
       <div>
-        <div>YOU ARE LOGIN IN</div>
+        <div>LOGIN</div>
         <div>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'>Email
           <input
             id='email'
             name='email'
@@ -27,7 +33,7 @@ function Login() {
             autoComplete='email'
             required
             placeholder='john@doe.com'
-          />
+          /></label>
         </div>
 
         <div>
@@ -41,10 +47,10 @@ function Login() {
             placeholder='123123'
           />
         </div>
-      </div>
 
-      <div>
-        <button type='submit'> Log in </button>
+        <div>
+          <button type='submit'> Log in </button>
+        </div>
       </div>
     </form>
   );

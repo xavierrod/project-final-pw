@@ -1,0 +1,22 @@
+.dropzone {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #999;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+}
+
+.dropzone:hover {
+  border-color: #6c2626;
+}
+
+.dropzone:focus {
+  outline: none;
+  border-color: #333;
+}

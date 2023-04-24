@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 function Home() {
   return (
     <>
-      <h1>ESTAS LOGEADO</h1>
+      <h1>HOME</h1>
     </>
   );
 }

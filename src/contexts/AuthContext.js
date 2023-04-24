@@ -1,5 +1,6 @@
-import { createContext } from 'react'
+import { createContext } from 'react';
 
-const AuthContext = createContext(null)
+//1. AuthContext uses the method from react create context and we export it to AuthProvider
+const AuthContext = createContext(null);
 
-export default AuthContext
+export default AuthContext;
