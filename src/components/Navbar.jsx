@@ -15,14 +15,15 @@ function Navbar() {
         Inicio
       </NavLink>
 
-      <NavLink to='/upload' className={styles.mainNav__a}>
+     {/*  <NavLink to='/upload' className={styles.mainNav__a}>
         Upload
-      </NavLink>
-      {/* {isAuthenticated && (
+      </NavLink> */}
+      
+      {isAuthenticated && (
         <NavLink to='/upload' className={styles.mainNav__a}>
           Upload
         </NavLink>
-      )} */}
+      )}
 
       <NavLink to='/signup' className={styles.mainNav__a}>
         Sign Up

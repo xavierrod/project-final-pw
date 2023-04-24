@@ -10,7 +10,9 @@ const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(localUser); //storages the user
 
   const setUserHandler = (user = {}) => {
+    //console.log('test',user)
     if (isEmpty(user)) return;
+
 
     localStorage.setItem('user', JSON.stringify(user)); /*json in localstorage*/
     setCurrentUser(user);
@@ -23,21 +25,15 @@ const AuthProvider = ({ children }) => {
 
   const authValues = useMemo(() => {
     return {
-      //tokens:
-      //from ToDos
+      
       user: currentUser?.user || null,
-      data: currentUser?.data?.token, //accessToken in ToDos
-      isAuthenticated: !!currentUser?.data?.id, //no deberia ser el identificador unico?
+      data: currentUser?.token, 
+      isAuthenticated: !!currentUser?.token, // data?.data?.token
       //!! boolean, if i dont add the !! i will get a truthy or falsy, when i add the !! i will get a boolean
       setUser: setUserHandler,
       logout: logoutHandler,
 
-      //modified
-      /* user: currentUser?.user || null,
-      token: currentUser?.data?.token,
-      isAuthenticated: !!currentUser?.user?.data?.token,
-      setUser: setUserHandler,
-      logout: logoutHandler, */
+     
     };
   });
 

@@ -14,9 +14,11 @@ function Login() {
 
     const credentials = Object.fromEntries(new FormData(e.target));
     const { data } = await post({ url: '/users/login', body: credentials });
-    console.log(data);
+    
+   
 
-    if (data) return navigate('/signup'); //when you log in, it will send you into the /PAGE
+
+    if (data) return navigate('/upload'); //when you log in, it will send you into the /PAGE
   };
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
