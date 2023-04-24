@@ -1,23 +1,20 @@
-import { useEffect, useState } from 'react';
-import useServer from '../hooks/useServer.js';
+import React, { useState } from 'react';
+import UploadForm from '../components/UploadForm';
 
-function Upload() {
+const Upload = () => {
+  const [uploaded, setUploaded] = useState(false);
+
+  const handleUpload = () => {
+    setUploaded(true);
+  };
+
   return (
-    <>
-      <form>
-        <div>
-          <label htmlFor='location'>Location</label>
-          <input type='text' id='location' />
-        </div>
-
-        <div>
-          <label htmlFor='description'>Description</label>
-          <textarea id='description' />
-        </div>
-        <button type='submit'>Submit</button>
-      </form>
-    </>
+    <div>
+      <h2>Upload Pictures</h2>
+      <UploadForm onUpload={handleUpload} />
+      {uploaded && <p>Upload successful!</p>}
+    </div>
   );
-}
+};
 
 export default Upload;

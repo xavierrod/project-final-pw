@@ -11,6 +11,9 @@ import Home from './views/home';
 import Upload from './views/upload';
 import Notifications from './components/Notifications';
 
+//styles
+import styles from './index.css';
+
 //
 import useAuth from './hooks/useAuth';
 
@@ -24,8 +27,8 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Index />} />
-        <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/upload' element={<Upload />} />
 
         <Route element={<PrivateRoutes />}>

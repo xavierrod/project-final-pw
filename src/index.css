@@ -1,3 +1,14 @@
+body {
+  background-image: url('./assets/images/bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 
+.bg{
+  background-image: url(./assets/images/background.jpg);
+  background-size: cover;
+} */
 
 .dropzone {
   text-align: center;

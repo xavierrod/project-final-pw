@@ -3,7 +3,7 @@ import { apiURL } from '../config.js';
 async function httpService({ url, method = 'GET', token = null, body = null }) {
   if (!url.startsWith('/')) throw new Error('URL Must Start With a Slash (/)');
 
-  const fullURL = new URL(apiURL + url);
+  const fullURL = new URL(apiURL + url); //asincronia
   const config = {
     method,
     headers: {
@@ -13,7 +13,7 @@ async function httpService({ url, method = 'GET', token = null, body = null }) {
   };
 
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    config.headers.Authorization = `Bearer ${token}`; //bearer token
   }
 
   if (body) {

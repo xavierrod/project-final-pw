@@ -1,0 +1,95 @@
+/* Group 1 */
+
+.bg{
+   background-image: url(../assets/images/bg.jpg);
+   background-size: cover;
+ }
+
+ .loginForm {
+   max-width: 400px;
+   margin: auto;
+   padding: 20px;
+   border: 1px solid #ccc;
+   background: rgba(22, 15, 41, 0.8);
+   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+   border-radius: 10px;
+   font-family: Arial, sans-serif;
+ }
+ 
+ .loginForm div {
+   color: #fff;
+   margin-bottom: 30px;
+ }
+ 
+ .loginForm label {
+   color: #fff;
+   display: block;
+   margin-bottom: 5px;
+   font-weight: bold;
+ }
+ 
+ .loginForm input[type='email'],
+ .loginForm input[type='password'] {
+   width: 100%;
+   padding: 8px;
+   border: 1px solid #ccc;
+   border-radius: 3px;
+   box-sizing: border-box;
+   font-size: 16px;
+   font-family: Arial, sans-serif;
+ }
+ 
+ .loginForm button[type='submit'] {
+   width: 100%;
+   background-color: #3e8e41;
+   color: #fff;
+   padding: 10px;
+   border: none;
+   border-radius: 3px;
+   cursor: pointer;
+   font-size: 16px;
+   font-family: Arial, sans-serif;
+   transition: background-color 0.2s;
+ }
+ 
+ .loginForm button[type='submit']:hover {
+   background-color: #246A73;
+ }
+ 
+ .loginForm label {
+   text-align: left;
+   font-size: 20px;
+   font-weight: bold;
+   margin-bottom: 10px;
+ }
+
+ .loginForm div:first-child {
+   text-align: center;
+   font-size: 24px;
+   font-weight: bold;
+   margin-bottom: 20px;
+ }
+ 
+ .loginForm input[type='email']:invalid:focus,
+ .loginForm input[type='password']:invalid:focus {
+   border-color: #ff0000;
+   box-shadow: 0 0 5px #ff0000;
+ }
+ 
+ .loginForm input[type='email']:valid,
+ .loginForm input[type='password']:valid {
+   border-color: #ccc;
+   box-shadow: none;
+ }
+ 
+ .loginForm .error-message {
+   color: #ff0000;
+   font-size: 14px;
+   margin-top: 5px;
+   display: none;
+ }
+ 
+ .loginForm .error-message.active {
+   display: block;
+ }
+ 
