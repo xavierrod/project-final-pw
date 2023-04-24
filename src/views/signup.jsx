@@ -2,6 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useServer from '../hooks/useServer.js';
 
+//CSS
+import styles from './signup.module.css';
+
 function SignUp() {
   const { post } = useServer();
   const navigate = useNavigate();
@@ -15,7 +18,7 @@ function SignUp() {
     if (data) return navigate('/login'); //when you log in, it will send you into the /PAGE
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.signupForm} onSubmit={handleSubmit}>
       <div>
         <div>YOU ARE CREATING AN ACCOUNT</div>
         <div>

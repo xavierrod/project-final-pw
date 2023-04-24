@@ -6,8 +6,10 @@ function useServer() {
   const { token, setUser } = useAuth();
   //backend values: status, message, data, token
   const handleResponse = ({ data, loading, error }) => {
-    if (data?.status === 'ok') {
-      setUser({ ...data });
+    console.log('test',data, loading, error)
+
+    if (data?.status === 'ok' && data?.data?.token) {
+      setUser({token: data?.data?.token}); // the token 
     }
     //backend values: de login incorrecto
     if (error && error.status === 'error') {
@@ -21,6 +23,8 @@ function useServer() {
     return { data, loading, error };
   };
 
+
+  //token is the 
   return {
     get: ({ url }) => httpService({ method: 'GET', url, token }),
     post: ({ url, body }) =>
