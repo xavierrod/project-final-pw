@@ -9,7 +9,7 @@ async function httpService({
 }) {
   if (!url.startsWith('/')) throw new Error('URL Must Start With a Slash (/)');
 
-  const fullURL = new URL(apiURL + url);
+  const fullURL = new URL(apiURL + url); //asincronia
   const config = {
     method,
     headers: {
@@ -22,7 +22,11 @@ async function httpService({
   }
 
   if (token) {
+<<<<<<< HEAD:src/services/httpService.js
     config.headers.Authorization = `Bearer ${token}`; // token bearer
+=======
+    config.headers.Authorization = `Bearer ${token}`; //bearer token
+>>>>>>> 83d085d8432276e80e38fdd6353a6ef2a7039534:src/services/httpServices.js
   }
 
   if (body && !isImage) {

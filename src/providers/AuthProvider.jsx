@@ -7,7 +7,11 @@ const AuthProvider = ({ children }) => {
   /* i parse(get a string and turn it into a object) the json  
  if not i deliver a empty object */
   const localUser = JSON.parse(localStorage.getItem('user')) || {};
+<<<<<<< HEAD
   const [currentUser, setCurrentUser] = useState(localUser); //user in localstorage
+=======
+  const [currentUser, setCurrentUser] = useState(localUser); //storages the user
+>>>>>>> 83d085d8432276e80e38fdd6353a6ef2a7039534
 
   const setUserHandler = (user = {}) => {
     //console.log('test',user)
