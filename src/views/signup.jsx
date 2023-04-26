@@ -15,7 +15,7 @@ function SignUp() {
     const credentials = Object.fromEntries(new FormData(e.target));
     const { data } = await post({ url: '/users', body: credentials });
     console.log(data);
-    if (data) return navigate('/login'); //when you log in, it will send you into the /PAGE
+    if (data) return navigate('/'); //if you get (data), it will send you into the /PAGE
   };
   return (
     <form className={styles.signupForm} onSubmit={handleSubmit}>

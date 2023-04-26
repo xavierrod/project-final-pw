@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useServer from '../hooks/useServer.js';
 
-//CCS
+//CSS
 import styles from './login.module.css';
 
 function Login() {
@@ -14,26 +14,27 @@ function Login() {
 
     const credentials = Object.fromEntries(new FormData(e.target));
     const { data } = await post({ url: '/users/login', body: credentials });
-    
-   
 
+    //const { data } = await post({ url: '/users/login', body: image, isImage: true });    
 
-    if (data) return navigate('/upload'); //when you log in, it will send you into the /PAGE
+    if (data) return navigate('/'); //when you log in, it will send you into the /PAGE
   };
   return (
     <form className={styles.loginForm} onSubmit={handleSubmit}>
       <div>
         <div>LOGIN</div>
         <div>
-          <label htmlFor='email'>Email
-          <input
-            id='email'
-            name='email'
-            type='email'
-            autoComplete='email'
-            required
-            placeholder='john@doe.com'
-          /></label>
+          <label htmlFor='email'>
+            Email
+            <input
+              id='email'
+              name='email'
+              type='email'
+              autoComplete='email'
+              required
+              placeholder='john@doe.com'
+            />
+          </label>
         </div>
 
         <div>

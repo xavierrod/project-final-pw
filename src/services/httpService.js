@@ -1,23 +1,36 @@
 import { apiURL } from '../config.js';
 
-async function httpService({ url, method = 'GET', token = null, body = null }) {
+async function httpService({
+  url,
+  method = 'GET',
+  token = null,
+  body = null,
+  isImage = false,
+}) {
   if (!url.startsWith('/')) throw new Error('URL Must Start With a Slash (/)');
 
-  const fullURL = new URL(apiURL + url); //asincronia
+  const fullURL = new URL(apiURL + url);
   const config = {
     method,
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
     },
   };
 
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`; //bearer token
+  if (!isImage) {
+    config.headers['Content-Type'] = 'application/json';
   }
 
-  if (body) {
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`; // token bearer
+  }
+
+  if (body && !isImage) {
     config.body = JSON.stringify(body);
+  }
+
+  if (body && isImage) {
+    config.body = body;
   }
 
   try {

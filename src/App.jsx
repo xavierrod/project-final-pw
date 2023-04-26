@@ -19,11 +19,13 @@ import useAuth from './hooks/useAuth';
 
 function App() {
   const { isAuthenticated } = useAuth();
+
+  console.log({ isAuthenticated });
+
   return (
     <>
       <Notifications />
       <Navbar />
-      {JSON.stringify({ isAuthenticated })}
 
       <Routes>
         <Route path='/' element={<Index />} />
