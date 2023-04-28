@@ -1,21 +1,31 @@
 /* Group 1 */
+ body {
+ /*  background-image: url("../assets/images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.5);
+   */
 
-.bg{
-   background-image: url(../assets/images/bg.jpg);
-   background-size: cover;
- }
+ 
+} 
 
  .loginForm {
-   max-width: 400px;
-   margin: auto;
-   padding: 20px;
-   border: 1px solid #ccc;
-   background: rgba(22, 15, 41, 0.8);
-   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-   border-radius: 10px;
-   font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: auto;
+  padding: 50px;
+  border: 1px solid #ccc;
+  background: rgba(22, 15, 41, 0.8);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
  }
  
+ 
+
  .loginForm div {
    color: #fff;
    margin-bottom: 30px;
@@ -93,3 +103,9 @@
    display: block;
  }
  
+
+.nav{
+ 
+   color: #fff;
+   
+ }

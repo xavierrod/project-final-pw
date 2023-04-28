@@ -14,8 +14,11 @@ function useServer() {
   const handleResponse = ({ data, loading, error }) => {
     console.log('test', data, loading, error);
 
-    /*checks if the response data object has a status property set to 'ok' and a data property 
-  that contains a token.  */
+  /*
+  checks if the response data object has a status property set to 'ok' and a data property 
+  that contains a token.  
+  
+  */
     if (data?.status === 'ok' && data?.data?.token) {
       setUser({ token: data?.data?.token }); // the token is updated with the new value.
     } //       (...data?.data)
@@ -31,7 +34,8 @@ function useServer() {
     return { data, loading, error };
   };
 
-  /*The handleResponse returns the object passed to it, with data, loading, and error properties. 
+  /*
+  The handleResponse returns the object passed to it, with data, loading, and error properties. 
   The post,put,get,delete methods call httpService with their respective HTTP methods and the url and token as parameters. */
   return {
     get: ({ url }) => httpService({ method: 'GET', url, token }),
