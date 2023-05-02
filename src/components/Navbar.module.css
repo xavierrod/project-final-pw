@@ -1,7 +1,24 @@
-.mainNav {
-  text-align: center;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+.nav__home,
+.nav__upload,
+.nav__auth a {
+  background-color: #4CAF50; 
+  border-radius: 5px; 
+  color: #fff; 
+  font-size: 1.2rem;
+  margin-left: 20px;
+  padding: 10px 15px; 
+  text-decoration: none; 
 }
 
-.mainNav__a {
-  padding: 0 .5em;
+.nav__home:hover,
+.nav__upload:hover,
+.nav__auth a:hover {
+  background-color: #3e8e41; 
 }

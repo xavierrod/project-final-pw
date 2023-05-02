@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useServer from '../hooks/useServer.js';
 
 //CSS
@@ -15,52 +15,51 @@ function Login() {
 
     const credentials = Object.fromEntries(new FormData(e.target));
     const { data } = await post({ url: '/users/login', body: credentials });
-
     //const { data } = await post({ url: '/users/login', body: image, isImage: true });
-
     if (data) return navigate('/'); //when you log in, it will send you into the /PAGE
   };
   return (
-    <div >
-    <form className={styles.loginForm} onSubmit={handleSubmit}>
-      <div>
-        <div>LOGIN</div>
+    <div className={styles.signupContainer}>
+      <form className={styles.signupForm} onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='email'>
-            Email
-            <input
-              id='email'
-              name='email'
-              type='email'
-              autoComplete='email'
-              required
-              placeholder='john@doe.com'
-            />
-          </label>
+          <h2>Login</h2>
+          <div>
+            <label htmlFor='email'>
+              Email
+              <input
+                id='email'
+                name='email'
+                type='email'
+                autoComplete='email'
+                required
+                placeholder='john@doe.com'
+              />
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor='pwd'>
+              Password
+              <input
+                id='pwd'
+                name='pwd'
+                type='password'
+                autoComplete='password'
+                required
+                placeholder='123123'
+              />
+            </label>
+          </div>
         </div>
 
         <div>
-          <label htmlFor='pwd'>Password</label>
-          <input
-            id='pwd'
-            name='pwd'
-            type='password'
-            autoComplete='password'
-            required
-            placeholder='123123'
-          />
+          <button type='submit'>  Login  </button>
         </div>
-
-        <div>
-          <button type='submit'> Log in </button>
-        </div>
-        
-        <nav className={styles.nav}>
-          <NavLink to='/signup'>signup</NavLink>
-        </nav>
-
-      </div>
-    </form>
+        <p className={styles.loginLink}>
+          New User?&nbsp;&nbsp;&nbsp;
+          <Link to='/signup'>Signup</Link>
+        </p>
+      </form>
     </div>
   );
 }

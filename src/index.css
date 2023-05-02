@@ -1,16 +1,9 @@
-/* body {
-  background-image: url('./assets/images/bg.jpg');
+/*  body {
+  background-image: url("./assets/images/bg.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: cover;
-  
-}
- */
-/* 
-.bg{
-  background-image: url(./assets/images/background.jpg);
-  background-size: cover;
-  opacity: 0.5;
-} */
+  } */
+ 
 
 .dropzone {
   text-align: center;

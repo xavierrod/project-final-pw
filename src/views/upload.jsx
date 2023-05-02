@@ -9,11 +9,13 @@ const Upload = () => {
   };
 
   return (
-    <div>
-      <h2>Upload Pictures</h2>
-      <UploadForm onUpload={handleUpload} />
-      {uploaded && <p>Upload successful!</p>}
-    </div>
+    <>
+      <div>
+        
+        <UploadForm onUpload={handleUpload} />
+        {uploaded && <p>Upload successful!</p>}
+      </div>
+    </>
   );
 };
 

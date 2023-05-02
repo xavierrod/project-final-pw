@@ -7,7 +7,7 @@ async function httpService({
   body = null,
   isImage = false,
 }) {
-  if (!url.startsWith('/')) throw new Error('URL Must Start With a Slash (/)');
+/*   if (!url.startsWith('/')) throw new Error('URL Must Start With a Slash (/)'); */
 
   const fullURL = new URL(apiURL + url); 
   const config = {

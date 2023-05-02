@@ -10,31 +10,30 @@ function Navbar() {
   const { isAuthenticated, logout } = useAuth();
 
   return (
-    <nav className={styles.mainNav}>
-      <NavLink to='/' className={styles.mainNav__a}>
-        Inicio
+    <nav>
+      <NavLink to='/' className={styles.nav__home}>
+        Home
       </NavLink>
 
       {isAuthenticated && (
-        <NavLink to='/upload' className={styles.mainNav__a}>
+        <NavLink to='/upload' className={styles.nav__upload}>
           Upload
         </NavLink>
       )}
 
-      {isAuthenticated ? (
-        <NavLink to='/' className={styles.mainNav__a} onClick={logout}>
-          logout
-        </NavLink>
-      ) : (
-        <>
-          <NavLink to='/login' className={styles.mainNav__a}>
-            login
+
+      <div className={styles.nav__auth}>
+        {isAuthenticated ? (
+          <NavLink to='/' onClick={logout}>
+            Logout
           </NavLink>
-          <NavLink to='/signup' className={styles.mainNav__a}>
-            Sign Up
-          </NavLink>
-        </>
-      )}
+        ) : (
+          <>
+            <NavLink to='/login'>Login</NavLink>
+            <NavLink to='/signup'>Sign Up</NavLink>
+          </>
+        )}
+      </div>
     </nav>
   );
 }

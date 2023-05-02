@@ -7,7 +7,6 @@ import Navbar from './components/Navbar';
 import Index from './views/index';
 import Login from './views/login';
 import SignUp from './views/signup';
-import Home from './views/home';
 import Upload from './views/upload';
 import Notifications from './components/Notifications';
 
@@ -32,11 +31,13 @@ function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
         <Route path='/upload' element={<Upload />} />
-
+        
+        
         <Route element={<PrivateRoutes />}>
-          <Route path='/home' element={<Home />} />
+        <Route path='/upload' element={<Upload />} />
         </Route>
       </Routes>
+      
     </>
   );
 }
