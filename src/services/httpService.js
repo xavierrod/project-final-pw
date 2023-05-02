@@ -5,11 +5,11 @@ async function httpService({
   method = 'GET',
   token = null,
   body = null,
-  isImage = false,
+  hasImage = false,
 }) {
-/*   if (!url.startsWith('/')) throw new Error('URL Must Start With a Slash (/)'); */
+  if (!url.startsWith('/')) throw new Error('URL Must Start With a Slash (/)');
 
-  const fullURL = new URL(apiURL + url); 
+  const fullURL = new URL(apiURL + url);
   const config = {
     method,
     headers: {
@@ -17,19 +17,19 @@ async function httpService({
     },
   };
 
-  if (!isImage) {
+  if (!hasImage) {
     config.headers['Content-Type'] = 'application/json';
   }
 
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`; // token bearer
+    config.headers.Authorization = token; // token bearer
   }
 
-  if (body && !isImage) {
+  if (body && !hasImage) {
     config.body = JSON.stringify(body);
   }
 
-  if (body && isImage) {
+  if (body && hasImage) {
     config.body = body;
   }
 

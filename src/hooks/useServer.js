@@ -12,16 +12,15 @@ import useAuth from './useAuth.js';
 function useServer() {
   const { token, setUser } = useAuth();
   const handleResponse = ({ data, loading, error }) => {
-    //console.log('test', data, loading, error);
-  
+
   /*
   checks if the response data object has a status property set to 'ok' and a data property 
   that contains a token.  
-  
   */
+ 
     if (data?.status === 'ok' && data?.data?.token) {
       setUser({ token: data?.data?.token }); // the token is updated with the new value.
-    } 
+    }
     if (error && error.status === 'error') {
       toast.error(data?.message);
     } else {
@@ -38,12 +37,12 @@ function useServer() {
   The post,put,get,delete methods call httpService with their respective HTTP methods and the url and token as parameters. */
   return {
     get: ({ url }) => httpService({ method: 'GET', url, token }),
-    post: ({ url, body, token, isImage }) =>
-      httpService({ method: 'POST', url, token, body, isImage }).then(
+    post: ({ url, body, hasImage }) =>
+      httpService({ method: 'POST', url, token, body, hasImage }).then(
         handleResponse
       ),
-    put: ({ url, body, isImage }) =>
-      httpService({ method: 'PUT', url, token, body, isImage }).then(
+    put: ({ url, body, hasImage }) =>
+      httpService({ method: 'PUT', url, token, body, hasImage }).then(
         handleResponse
       ),
     delete: ({ url }) => httpService({ method: 'DELETE', url, token }),

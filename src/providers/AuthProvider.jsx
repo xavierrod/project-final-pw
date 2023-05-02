@@ -13,7 +13,6 @@ const AuthProvider = ({ children }) => {
     //console.log('test',user)
     if (isEmpty(user)) return;
 
-
     localStorage.setItem('user', JSON.stringify(user)); /*json in localstorage*/
     setCurrentUser(user);
   };
@@ -25,15 +24,12 @@ const AuthProvider = ({ children }) => {
 
   const authValues = useMemo(() => {
     return {
-      
       user: currentUser?.user || null,
-      data: currentUser?.token, 
+      token: currentUser?.token,
       isAuthenticated: !!currentUser?.token, // data?.data?.token
       //!! boolean, if i dont add the !! i will get a truthy or falsy, when i add the !! i will get a boolean
       setUser: setUserHandler,
       logout: logoutHandler,
-
-     
     };
   });
 

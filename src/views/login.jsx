@@ -15,7 +15,7 @@ function Login() {
 
     const credentials = Object.fromEntries(new FormData(e.target));
     const { data } = await post({ url: '/users/login', body: credentials });
-    //const { data } = await post({ url: '/users/login', body: image, isImage: true });
+    //const { data } = await post({ url: '/users/login', body: image, hasImage: true });
     if (data) return navigate('/'); //when you log in, it will send you into the /PAGE
   };
   return (
@@ -53,7 +53,7 @@ function Login() {
         </div>
 
         <div>
-          <button type='submit'>  Login  </button>
+          <button type='submit'> Login </button>
         </div>
         <p className={styles.loginLink}>
           New User?&nbsp;&nbsp;&nbsp;
