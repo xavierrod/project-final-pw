@@ -8,13 +8,15 @@ import Index from './views/index';
 import Login from './views/login';
 import SignUp from './views/signup';
 import Upload from './views/upload';
-import Notifications from './components/Notifications';
+import MyEntries from './views/myEntries';
 
 //styles
-import styles from './index.css';
+import Notifications from './components/Notifications';
+import styles from './index.css?inline';
 
 //
 import useAuth from './hooks/useAuth';
+import EntryEdit from './views/EntryEdit';
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -30,14 +32,13 @@ function App() {
         <Route path='/' element={<Index />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/upload' element={<Upload />} />
-        
-        
+
         <Route element={<PrivateRoutes />}>
-        <Route path='/upload' element={<Upload />} />
+          <Route path='/myentries' element={<MyEntries />} />
+          <Route path='/upload' element={<Upload />} />
+          <Route path='/entries/:id/edit' element={<EntryEdit />} />
         </Route>
       </Routes>
-      
     </>
   );
 }

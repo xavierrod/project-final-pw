@@ -22,7 +22,7 @@ async function httpService({
   }
 
   if (token) {
-    config.headers.Authorization = token; // token bearer
+    config.headers.Authorization = token; 
   }
 
   if (body && !hasImage) {

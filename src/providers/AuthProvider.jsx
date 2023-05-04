@@ -1,20 +1,30 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+
 import AuthContext from '../contexts/AuthContext.js';
 import isEmpty from '../helpers/isEmpty.js';
 
-//2.
+import jwt_decode from 'jwt-decode';
+
 const AuthProvider = ({ children }) => {
-  /* i parse(get a string and turn it into a object) the json  
- if not i deliver a empty object */
   const localUser = JSON.parse(localStorage.getItem('user')) || {};
   const [currentUser, setCurrentUser] = useState(localUser); //user in localstorage
 
   const setUserHandler = (user = {}) => {
-    //console.log('test',user)
     if (isEmpty(user)) return;
 
-    localStorage.setItem('user', JSON.stringify(user)); /*json in localstorage*/
-    setCurrentUser(user);
+    const newUser = {
+      ...currentUser,
+      ...user,
+    };
+
+    if (newUser?.token && !newUser?.user?.id) {
+      const result = jwt_decode(user?.token);
+      const userData = { id: result.id };
+      newUser.user = userData;
+    }
+
+    localStorage.setItem('user', JSON.stringify(newUser));
+    setCurrentUser(newUser);
   };
 
   const logoutHandler = () => {

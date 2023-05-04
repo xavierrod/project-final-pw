@@ -15,12 +15,30 @@ function Navbar() {
         Home
       </NavLink>
 
+    {isAuthenticated &&
+      (<NavLink to='/myentries' className={styles.nav__home}>
+        My Entries
+      </NavLink>)
+    }
+
+     {/*  <div className={styles.nav__home}>
+        {isAuthenticated ? (
+          <NavLink to='/home' >
+            Home
+          </NavLink>
+        ) : (
+          <>
+            <NavLink to='/'>Home</NavLink>
+            
+          </>
+        )}
+      </div> */}
+
       {isAuthenticated && (
         <NavLink to='/upload' className={styles.nav__upload}>
           Upload
         </NavLink>
       )}
-
 
       <div className={styles.nav__auth}>
         {isAuthenticated ? (

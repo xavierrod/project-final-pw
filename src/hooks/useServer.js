@@ -12,12 +12,11 @@ import useAuth from './useAuth.js';
 function useServer() {
   const { token, setUser } = useAuth();
   const handleResponse = ({ data, loading, error }) => {
-
-  /*
+    /*
   checks if the response data object has a status property set to 'ok' and a data property 
   that contains a token.  
   */
- 
+
     if (data?.status === 'ok' && data?.data?.token) {
       setUser({ token: data?.data?.token }); // the token is updated with the new value.
     }
@@ -43,6 +42,10 @@ function useServer() {
       ),
     put: ({ url, body, hasImage }) =>
       httpService({ method: 'PUT', url, token, body, hasImage }).then(
+        handleResponse
+      ),
+    patch: ({ url, body, hasImage }) =>
+      httpService({ method: 'PATCH', url, token, body, hasImage }).then(
         handleResponse
       ),
     delete: ({ url }) => httpService({ method: 'DELETE', url, token }),
