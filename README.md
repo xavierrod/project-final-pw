@@ -1,5 +1,15 @@
 # Powercoders-final-project
 
+<h3>INSTRUCCIONES:</h3>
+-clonar repositorio.
+*dependecias a instalar:
+-npm i sonner
+-npm i jwt-decode
+-npm react-icons
+Correr App npm run dev
+
+
+
 <h3>DESCRIPCIÓN:</h3>
 
 - Aplicación donde los usuarios pueden dejar opiniones sobre viajes o experiencias y votarlas.
@@ -22,3 +32,4 @@
 - Modificar sus propias opiniones
 - Añadir o quitar fotos a sus propias opiniones
 - Votar opiniones de otros usuarios
+
