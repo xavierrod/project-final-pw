@@ -1,14 +1,12 @@
 # Powercoders-final-project
 
 <h3>INSTRUCCIONES:</h3>
--clonar repositorio.
-*dependecias a instalar:
--npm i sonner
--npm i jwt-decode
--npm react-icons
-Correr App npm run dev
-
-
+- clonar repositorio.
+- dependecias a instalar:
+- npm i sonner
+- npm i jwt-decode
+- npm react-icons
+- Inicializar con npm run dev
 
 <h3>DESCRIPCIÓN:</h3>
 
