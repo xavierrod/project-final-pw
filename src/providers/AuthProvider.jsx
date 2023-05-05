@@ -7,7 +7,7 @@ import jwt_decode from 'jwt-decode';
 
 const AuthProvider = ({ children }) => {
   const localUser = JSON.parse(localStorage.getItem('user')) || {};
-  const [currentUser, setCurrentUser] = useState(localUser); //user in localstorage
+  const [currentUser, setCurrentUser] = useState(localUser); 
 
   const setUserHandler = (user = {}) => {
     if (isEmpty(user)) return;
@@ -36,8 +36,7 @@ const AuthProvider = ({ children }) => {
     return {
       user: currentUser?.user || null,
       token: currentUser?.token,
-      isAuthenticated: !!currentUser?.token, // data?.data?.token
-      //!! boolean, if i dont add the !! i will get a truthy or falsy, when i add the !! i will get a boolean
+      isAuthenticated: !!currentUser?.token, 
       setUser: setUserHandler,
       logout: logoutHandler,
     };

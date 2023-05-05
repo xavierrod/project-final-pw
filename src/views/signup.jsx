@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useServer from '../hooks/useServer.js';
 import { Link } from 'react-router-dom';
 
-//CSS
+
 import styles from './signup.module.css';
 
 function SignUp() {
@@ -15,15 +15,12 @@ function SignUp() {
 
     const credentials = Object.fromEntries(new FormData(e.target));
     const { data } = await post({ url: '/users', body: credentials });
-    /*  console.log(data); */
 
     if (data) {
-      // If registration is successful, try to log the user in with the same credentials
       const { data: loginData } = await post({
         url: '/users/login',
         body: credentials,
       });
-      /* console.log(loginData); */
 
       if (loginData) {
         localStorage.setItem('token', loginData.token);
@@ -36,6 +33,7 @@ function SignUp() {
       <form className={styles.signupForm} onSubmit={handleSubmit}>
         <div>
           <h2>Sign Up</h2>
+          <img className={styles.imagen} src="/src/assets/images/logo.jpg" alt="logo" />
           <div>
             <label htmlFor='email'>
               Email

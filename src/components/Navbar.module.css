@@ -22,3 +22,6 @@ nav {
 .nav__auth a:hover {
   background-color: #3e8e41; 
 }
+.navbar{
+  background-color: rgba(4, 35, 51, 0.918);
+}

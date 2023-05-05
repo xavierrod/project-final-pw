@@ -16,14 +16,16 @@ function Login() {
 
     const credentials = Object.fromEntries(new FormData(e.target));
     const { data } = await post({ url: '/users/login', body: credentials });
-    //const { data } = await post({ url: '/users/login', body: image, hasImage: true });
-    if (data) return navigate('/'); //when you log in, it will send you into the /PAGE
+   
+    if (data) return navigate('/'); 
   };
   return (
     <div className={styles.signupContainer}>
       <form className={styles.signupForm} onSubmit={handleSubmit}>
         <div>
           <h2>Login</h2>
+          <img  className={styles.imagen} src="/src/assets/images/logo.jpg" alt="logo
+          " />
           <div>
             <label htmlFor='email'>
               Email

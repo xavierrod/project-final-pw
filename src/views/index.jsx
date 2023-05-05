@@ -51,7 +51,7 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      <h1>List of Entries</h1>
+      <h1>Publicaciones Recientes</h1>
       <form action='#' onSubmit={searchHandleSubmit} className={styles.form}>
         <input
           type='text'
@@ -120,7 +120,6 @@ function Home() {
                     onClick={voteClickHandler}
                   >
                     <h6>Evaluation</h6>
-                    {/* <h3 className="entrie__votes">Vote {data.votes}</h3> */}
                     {Array(5)
                       .fill()
                       .map((_, i) =>
@@ -149,68 +148,3 @@ function Home() {
 
 export default Home;
 
-/* old index
-import { useEffect, useState } from 'react';
-
-//import useAuth from '../hooks/useAuth';
-import useServer from '../hooks/useServer';
-import { apiURL } from '../config';
-
-//CSS
-import styles from './index.module.css';
-
-function Index() {
-  const { get } = useServer();
-  //const { isAuthenticated,user } = useAuth();
-  const [entries, setEntries] = useState([]);
-
-  const getEntries = async () => {
-    const { data } = await get({ url: '/entries' });
-    console.log(data)
-    setEntries(data.data);
-  };
-
-  useEffect(() => {
-    getEntries();
-  }, []);
-
-  return (
-    <>
-      <div className={styles.entry__list}>
-        <h1>List of Entries</h1>
-        <ul>
-          {entries.map((data) => {
-            return (
-              <li key={data.id} className={styles.entry}>
-                <div className={styles.entry__header}>
-                  <h2 className={styles.entry__place}>{data.place}</h2>
-                  <p className={styles.entry__description}>
-                    {data.description}
-                  </p>
-                </div>
-                <div className={styles.entry__photos}>
-                  {data.photo &&
-                    data.photo.map((photo) => {
-                      return (
-                        <img
-                          className={styles.entry__photo}
-                          key={photo.photo}
-                          src={`${apiURL}/${photo.photo}`}
-                          alt={photo.altText}
-                        />
-                      );
-                    })}
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </>
-  );
-}
-
-export default Index;
-
-
- */
